@@ -1,0 +1,9 @@
+<p>enfant works!</p>
+
+<ul>
+    <li *ngFor="let s of stringListe; let i = index">
+        {{s}} <button (click)="delete(i)">supprimer</button>
+    </li>
+</ul>
+
+<ng-content></ng-content>

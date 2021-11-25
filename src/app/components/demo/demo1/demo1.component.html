@@ -1,0 +1,65 @@
+<div>
+    <h3 style="cursor: pointer;" (click)="afficherBinding()">Partie Bindings</h3>
+</div>
+<div *ngIf="showBindings">
+    <p>Valeur de myProp : {{myProp}}</p>
+    <!-- Binding One-way => lecture de propriété {{ }} -->
+    <p>
+        <input type="text" [(ngModel)]="myProp">
+    <!-- Binding Two-way => lecture/ecriture de propriété [(ngModel)]-->
+    </p>
+
+    <a [href]="url" target="_blank">Go to youtube</a>
+    <!-- Binding d'attribut =>  [ ] liaison entre une prop ts et un attribut html -->
+
+    <button [disabled]="myProp == 'salut'" (click)="maMethod()" >Click ici</button>
+    <!-- Event Binding => (event)="method()" déclenche une méthode en fonction d'un evenement js -->
+
+
+    <!-- Directive ngFor => parcours de collections-->
+    
+</div>
+
+<div>
+    <h3 style="cursor: pointer;" (click)="afficherDirective()">Partie directives</h3>
+</div>
+<div *ngIf="showDirective">
+    <p>Ma Liste</p>
+    <ul>
+        <li *ngFor="let s of liste">
+            {{s}}
+        </li>
+    </ul>
+    <select (change)="switchRole($event)">
+        <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+    </select>
+    
+    <div [ngSwitch]="userRole">
+        <div *ngSwitchCase="'user'"><app-user></app-user></div>
+        <div *ngSwitchCase="'admin'"><app-admin></app-admin></div>
+        <div *ngSwitchCase="'modo'">Bonjour monsieur le modo</div>
+        <div *ngSwitchDefault="''">Merci de vous inscrire</div>
+    </div>
+
+    
+</div>
+
+<div>
+    <h3 (click)="affichePipe()">Partie Pipes</h3>
+</div>
+<div *ngIf="showPipe">
+    <p>Upper pipe : {{myProp | uppercase}}</p>
+    <p>title pipe : {{myProp | titlecase}}</p>
+    <p>Lower pipe : {{myProp | lowercase}}</p>
+
+    {{myDate}}
+    <p>Date pipe : {{myDate | date : 'dd-MM-yyyy'}}</p>
+    <p>Age pipe (custom) {{myDate | age}}</p>
+
+    <p>Money Pipe : {{myNumber | currency : 'EUR'}}</p>
+
+    <p>{{10.142 | currency : 'USD'}}</p>
+</div>
+
+
+

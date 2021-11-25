@@ -1,0 +1,5 @@
+<h3>Page de connexion</h3>
+<p>Statut de connexion : {{isConnected}}</p>
+
+<button (click)="login()" *ngIf="!isConnected">Login</button>
+<button (click)="logout()" *ngIf="isConnected">Logout</button>

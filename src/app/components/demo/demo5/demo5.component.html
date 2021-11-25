@@ -1,0 +1,19 @@
+<p>demo5 works!</p>
+<form [formGroup]="myFormgroup" (ngSubmit)="onSubmit()">
+
+    <p>Nom : <input type="text" formControlName="name"></p>
+    <p *ngIf="myFormgroup.controls['name'].invalid" style="color : red">Le nom est requis</p>
+    
+    <p>Email : <input type="email" formControlName="email"></p>
+    <p *ngIf="myFormgroup.controls['email'].invalid" style="color : red">L'email doit correspondre à : x@x</p>
+
+    <p>Age : <input type="number" formControlName="age"></p>
+    <p *ngIf="myFormgroup.controls['age'].invalid" style="color : red">Age minimum : 12ans</p>
+
+    <p>Date de naissance : <input type="date" formControlName="birthdate"></p>
+    <p *ngIf="myFormgroup.controls['birthdate'].invalid" style="color: red">
+        {{myFormgroup.controls['birthdate'].errors ? myFormgroup.controls['birthdate'].errors['dateError'] : ''}}
+    </p>
+
+    <button type="sumbit" value="valider" [disabled]="!myFormgroup.valid">Valider</button>
+</form>

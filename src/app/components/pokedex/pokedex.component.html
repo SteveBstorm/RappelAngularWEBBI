@@ -1,0 +1,8 @@
+<ul *ngIf="pokelist">
+    <li *ngFor="let p of pokelist.results">
+        {{p.name}}
+    </li>
+</ul>
+
+<button (click)="previous()">Précédent</button>
+<button (click)="next()">Suivant</button>
